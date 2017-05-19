@@ -10,22 +10,21 @@ import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 @ApplicationScoped
 public class ContactRepository {
 
     private final EntityManagerFactory emf;
 
-    public EntityManager getEntityManager() {
-        return emf.createEntityManager();
-    }
 
     public ContactRepository() {
         emf = Persistence.createEntityManagerFactory("primary");
     }
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
 
     public Contact findById(Long id) {
-         EntityManager em = getEntityManager();
+        EntityManager em = getEntityManager();
         System.out.println("Id is " + id);
         // System.out.println("EM &&&&&&&& " + em.toString());
 
@@ -33,7 +32,7 @@ public class ContactRepository {
     }
 
     public List<Contact> findAll() {
-         EntityManager em = getEntityManager();
+        EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Contact> criteria = cb.createQuery(Contact.class);
         Root<Contact> contact = criteria.from(Contact.class);
@@ -43,7 +42,7 @@ public class ContactRepository {
     }
 
     public Contact findByEmail(String email) {
-         EntityManager em = getEntityManager();
+        EntityManager em = getEntityManager();
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Contact> criteria = cb.createQuery(Contact.class);
         Root<Contact> contact = criteria.from(Contact.class);

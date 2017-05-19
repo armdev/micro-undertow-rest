@@ -23,11 +23,11 @@ public class Contact implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Long id;   
+    private Long id;
     @Column(name = "firstName")
-    private String firstName;   
+    private String firstName;
     @Column(name = "lastName")
-    private String lastName;  
+    private String lastName;
     @Column(name = "phone")
     private String phone;
     @Column(name = "email")
@@ -79,8 +79,6 @@ public class Contact implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
 
     @Override
     public int hashCode() {

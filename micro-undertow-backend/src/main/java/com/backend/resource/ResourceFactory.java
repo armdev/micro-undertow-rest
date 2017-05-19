@@ -9,14 +9,14 @@ import javax.ws.rs.core.Application;
 
 public class ResourceFactory extends Application {
 
-	@Inject
-	private Instance<Resource> resources;
-	
-	@Override
-	public Set<Class<?>> getClasses() {
-		final Set<Class<?>> resourceList = new LinkedHashSet<>();
-		resources.forEach(resource -> resourceList.add(resource.getClass()));
-		return resourceList;
-	}
+    @Inject
+    private Instance<Resource> resources;
+
+    @Override
+    public Set<Class<?>> getClasses() {
+        final Set<Class<?>> resourceList = new LinkedHashSet<>();
+        resources.forEach(resource -> resourceList.add(resource.getClass()));
+        return resourceList;
+    }
 
 }

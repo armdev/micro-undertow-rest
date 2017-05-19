@@ -8,22 +8,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
 @Stateless
 public class ContactRegistration {
 
     private final EntityManagerFactory emf;
 
-    public EntityManager getEntityManager() {
-        return emf.createEntityManager();
-    }
-
-    public ContactRegistration() {
-        emf = Persistence.createEntityManagerFactory("primary");
-    }
 
     @Inject
     private Event<Contact> memberEventSrc;
+    public ContactRegistration() {
+        emf = Persistence.createEntityManagerFactory("primary");
+    }
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
 
     public void register(Contact contact) throws Exception {
         EntityManager em = getEntityManager();
